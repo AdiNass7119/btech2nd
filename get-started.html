@@ -6,6 +6,36 @@
   <title>Get Started — App Hub</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    /* Animated gradient background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, #e63946 0%, #457b9d 100%, #1a1a2e 100%);
+      opacity: 0.18;
+      animation: bgGradientMove 8s linear infinite alternate;
+    }
+    @keyframes bgGradientMove {
+      0% { filter: blur(0px) brightness(1); }
+      100% { filter: blur(8px) brightness(1.1); }
+    }
+    /* Glowing hover effect for app cards */
+    .app-card {
+      box-shadow: 0 0 24px 4px #e63946cc, 0 2px 8px #457b9d44;
+      transition: box-shadow 0.3s, transform 0.2s;
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      animation: appCardIn 1s cubic-bezier(.7,-0.2,.3,1.4) forwards;
+    }
+    .app-card:hover {
+      box-shadow: 0 0 48px 12px #e63946cc, 0 2px 16px #457b9d88;
+      transform: scale(1.07) translateY(-8px);
+      background: rgba(255,255,255,0.12);
+    }
+    @keyframes appCardIn {
+      to { opacity: 1; transform: none; }
+    }
     body {
       background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
       color: #fff;
@@ -157,6 +187,78 @@
         </div>
       </div>
       <!-- Add more apps as you wish -->
+      <!-- Instagram -->
+      <div class="col">
+        <div class="app-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          <h5>Instagram</h5>
+          <a href="https://www.instagram.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Facebook -->
+      <div class="col">
+        <div class="app-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          <h5>Facebook</h5>
+          <a href="https://www.facebook.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Twitter/X -->
+      <div class="col">
+        <div class="app-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter">
+          <h5>Twitter (X)</h5>
+          <a href="https://twitter.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- LinkedIn -->
+      <div class="col">
+        <div class="app-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+          <h5>LinkedIn</h5>
+          <a href="https://www.linkedin.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Flipkart -->
+      <div class="col">
+        <div class="app-card">
+          <img src="https://www.citypng.com/public/uploads/preview/hd-flipkart-round-logo-icon-transparent-png-701751694966204grvmunpzzf.png?v=2025062019" alt="Flipkart">
+          <h5>Flipkart</h5>
+          <a href="https://www.flipkart.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Ola Cabs -->
+      <div class="col">
+        <div class="app-card">
+          <img src="" alt="Ola Cabs">
+          <h5>Ola Cabs</h5>
+          <a href="https://www.olacabs.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Uber -->
+      <div class="col">
+        <div class="app-card">
+          <img src="" alt="Uber">
+          <h5>Uber</h5>
+          <a href="https://www.uber.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+      <!-- Hotstar -->
+      <div class="col">
+        <div class="app-card">
+          <img src="" alt="Hotstar">
+          <h5>Hotstar</h5>
+          <a href="https://www.hotstar.com/" target="_blank" class="btn btn-sm btn-primary">Open</a>
+        </div>
+      </div>
+  <script>
+    // Animate app cards in sequence for entry effect
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.app-card').forEach((card, i) => {
+        card.style.animationDelay = (i * 0.08) + 's';
+      });
+    });
+  </script>
     </div>
   </div>
 </body>
